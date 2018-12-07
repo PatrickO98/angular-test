@@ -1,0 +1,38 @@
+#load {
+    display: block;
+    width: 120px;
+    padding: 2rem 0;
+}
+
+.error-msg {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+
+    .content {
+        display: block;
+        width: 60%;
+        background-color: #cccccc;
+        padding: 2rem;
+        border-radius: 5px;
+
+        img {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 24px;
+            width: 65%;
+            text-align: center;
+        }
+    }
+}
