@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../entities/person';
+import { People } from '../entities/people';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -22,8 +23,8 @@ export class PeopleService {
   // URL to web api
   private swapiUrl = 'https://swapi.co/api/';
 
-  getPeople(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.swapiUrl+'people');
+  getPeople(): Observable<People> {
+    return this.http.get<People>(this.swapiUrl+'people');
   }
 
   getPerson(id: number): Observable<Person> {

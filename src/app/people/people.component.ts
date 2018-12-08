@@ -10,6 +10,7 @@ import { Person } from '../entities/person';
 export class PeopleComponent implements OnInit {
 
   people: Person[];
+  allPeople: Person[];
 
   constructor(
     private peopleService: PeopleService
@@ -17,17 +18,28 @@ export class PeopleComponent implements OnInit {
 
    getPeople(): void {
     this.peopleService.getPeople()
-      .subscribe(people => {
+      .subscribe(
+        data => {
+          this.people = data.results;
+          this.allPeople = data.results;
+          document.getElementById('load').style.display = "none";
+        },
+        /*people => {
         this.people = people;
+        people = Array.from(people);
         document.getElementById('load').style.display = "none";
-      },
+      },*/
     error => {
-      document.getElementById('error').style.display = "block";
+      //document.getElementById('error').style.display = "block";
     });
   }
 
   ngOnInit() {
     this.getPeople();
+  }
+
+  filter(event: KeyboardEvent, param: string): void {
+    this.people = this.allPeople.filter(e => e.name.includes(param));
   }
 
 }
