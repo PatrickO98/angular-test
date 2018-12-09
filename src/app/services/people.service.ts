@@ -27,8 +27,8 @@ export class PeopleService {
     return this.http.get<People>(this.swapiUrl+'people');
   }
 
-  getPerson(id: number): Observable<Person> {
-    const url = `${this.swapiUrl}people/${id}`;
+  getPerson(pUrl: string): Observable<Person> {
+    const url = `${pUrl}`;
     return this.http.get<Person>(url);
   }
 }

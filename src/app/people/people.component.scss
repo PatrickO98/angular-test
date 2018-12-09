@@ -1,3 +1,5 @@
+$color1: #cccccc;
+
 .search {
     margin: 2rem 0;
 
@@ -5,7 +7,7 @@
         width: 100%;
         border-radius: 2px;
         border: none;
-        background-color: #cccccc;
+        background-color: $color1;
         padding: .3rem;
     }
 }
@@ -14,7 +16,29 @@
     margin: 1rem 0;
 
     .card {
-        background-color: #cccccc;
+        background-color: $color1;
 
     }
+}
+
+.modal {
+
+    .modal-body {
+        position: relative;
+        padding: 20px;
+        height: 350px;
+        overflow-y: scroll;
+    }
+
+    .images {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        img {
+            width: 48%;
+            align-self: center;
+        }
+    }
+
 }

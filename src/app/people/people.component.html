@@ -14,9 +14,46 @@
       <div class="card" style="width: 100%;">
         <div class="card-body">
           <h5 class="card-title">{{ person.name }}</h5>
-          <a href="#" class="card-link">Learn More</a>
+          <a href="#{{ person.created }}" #targetModal (click)="getImages(person.name, person.created)" class="card-link">Learn More</a>
         </div>
       </div>
+      <div id="{{ person.created }}" class="modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">{{ person.name }}</h5>
+                <button type="button" class="close" aria-label="Close" (click)="closeModal(person.created)">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="images">
+                  <img class="img-fluid" src="{{ image.thumbnailUrl }}" alt="" *ngFor="let image of images">
+                </div>
+                <article>
+                  <h6>More information:</h6>
+                  <!-- 
+                    birth_year: string;
+                    eye_color: string;
+                    gender: string;
+                    hair_color: string;
+                    height: number;
+                    homeworld: string;
+                    mass: number;
+                  -->
+                  <p><b>Birth Year:</b> {{ person.birth_year }}</p>
+                  <p><b>Eye Color:</b> {{ person.eye_color }}</p>
+                  <p><b>Hair Color:</b> {{ person.hair_color }}</p>
+                  <p><b>Height:</b> {{ person.height }}</p>
+                  <p><b>Mass:</b> {{ person.mass }}</p>
+                </article>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close" (click)="closeModal(person.created)">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
